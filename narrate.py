@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
+# narrative.py, a tool to create a narrative out of nothing by asking questions.
+# Copyright 2016 Ben Wiederhake
+# MIT licensed, so do whatever you want with it :)
 
 import hashlib
 
 
-# ===== Configuration.  Feel free to modify these :) =====
+# ===== Configuration.  Feel free to modify these =====
 
 narrator = 'God'
 
