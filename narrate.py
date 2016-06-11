@@ -1,14 +1,19 @@
 #!/usr/bin/env python3
-# narrative.py, a tool to create a narrative out of nothing by asking questions.
+# narrative.py, a tool to create a narrative out of nothing by asking questions
 # Copyright 2016 Ben Wiederhake
 # MIT licensed, so do whatever you want with it :)
 
 import hashlib
+from os import getenv
 
 
 # ===== Configuration.  Feel free to modify these =====
 
 narrator = 'God'
+
+username = getenv('USER')  # Not really portable, but whatever.
+if username is None:
+    username = "User"
 
 # Try to keep these balanced, with 'yes' being slightly favored.
 # Sorting by weight is NOT necessary, but somewhat good for performance.
@@ -59,21 +64,26 @@ def compute_response(question):
 # ===== Building blocks of interaction =====
 
 def greet():
-    print('Moderator:\nYou are now talking to {}.\nPlease note that they are '
-          'quite busy, so only yes/no questions are allowed to save bandwidth.\n'
-          'Apart from that, feel free to ask anything.\n'.format(narrator))
+    print('''Moderator:
+You are now talking to {}.
+Please note that they are quite busy, so only yes/no questions are allowed in
+order to save bandwidth.
+Apart from that, feel free to ask anything.
+'''.format(narrator))
 
 
 def not_a_question():
-    print('Moderator:\nThat doesn\'t look like a yes/no question.\n'
-          'The answer might not make much sense.\n')
+    print('''Moderator:
+That doesn't look like a yes/no question.
+The answer might not make much sense.
+''')
 
 
 def check_question(question):
-    good_prefixes = ['am ', 'are ', 'is ', 'will ', 'can ', 'may ', 'could ',
-                     'should ', 'shall ', 'ought ', 'would ', 'was ', 'do ',
-                     'does ']
-    bad_start = not any([question.lower().startswith(p) for p in good_prefixes])
+    good_prefix = ['am ', 'are ', 'is ', 'will ', 'can ', 'may ', 'could ',
+                   'should ', 'shall ', 'ought ', 'would ', 'was ', 'do ',
+                   'does ']
+    bad_start = not any([question.lower().startswith(p) for p in good_prefix])
     bad_end = not question.endswith('?')
     if bad_start or bad_end:
         not_a_question()
@@ -86,7 +96,7 @@ def respond(question):
 def read_question():
     # TODO: Ideally, only trigger on '?\n\n'
     # TODO: Use login-name or similar instead of 'User'
-    question = input('User:\n')
+    question = input('{}:\n'.format(username))
     print()
     return question
 
@@ -105,4 +115,11 @@ def interview():
 
 
 if __name__ == '__main__':
+    from sys import argv
+    if len(argv) > 2:
+        print('Usage: ./narrate.py [narrator]'
+              'Example: ./narrate.py "Chuck Norris"')
+        exit
+    if len(argv) == 2:
+        narrator = argv[1]
     interview()

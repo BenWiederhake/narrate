@@ -75,10 +75,6 @@ narrative](https://www.reddit.com/r/explainlikeimfive/comments/4nl12b/eli5_when_
 ## Current limitations / TODOs
 
 - There's no line-editing and I don't plan to change that.
-- The narrator is variable, which changes the responses (the narrator
-  is part of the input to the hash function).  This should be an optional
-  command-line argument.
-- The user's name should be used, not just `User:`
 - Try to be more robust against changes.  Maybe make it all lower-case,
   white-space stripped before hashing?
 - Make the names bold or something.
