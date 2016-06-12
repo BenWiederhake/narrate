@@ -99,7 +99,11 @@ def respond(question):
 def read_question():
     # TODO: Ideally, only trigger on '?\n\n'
     # TODO: Use login-name or similar instead of 'User'
-    question = input('{t.bold}{}{t.normal}:\n'.format(username, t=Terminal()))
+    prompt = '{t.bold}{}{t.normal}:\n'.format(username, t=Terminal())
+    question = ''
+    while not question.endswith('?'):
+        question = input(prompt)
+        prompt = ''
     print()
     return question
 

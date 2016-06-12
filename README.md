@@ -29,6 +29,7 @@ God:
 Yes.
 
 User:
+that doesn't sound like a good idea.
 are you god?
 
 God:
@@ -47,6 +48,7 @@ God:
 No.
 
 User:
+what the-
 are you joking?
 
 God:
@@ -107,6 +109,7 @@ God:
 Yes.
 
 User:
+Oh no.
 Is there a way to stop you?
 
 God:
