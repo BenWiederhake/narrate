@@ -77,6 +77,7 @@ narrative](https://www.reddit.com/r/explainlikeimfive/comments/4nl12b/eli5_when_
 - There's no line-editing and I don't plan to change that.
 - Not robust against small changes.  However, teaching a computer what's
   a "small" change and what isn't is out of the scope for this.
+- Come up with more clever answers that are universally applicable
 
 ## Breaking news
 
