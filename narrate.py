@@ -5,6 +5,7 @@
 
 import hashlib
 from os import getenv
+from blessings import Terminal
 
 
 # ===== Configuration.  Feel free to modify these =====
@@ -64,19 +65,19 @@ def compute_response(question):
 # ===== Building blocks of interaction =====
 
 def greet():
-    print('''Moderator:
+    print('''{t.bold}Moderator{t.normal}:
 You are now talking to {}.
 Please note that they are quite busy, so only yes/no questions are allowed in
 order to save bandwidth.
 Apart from that, feel free to ask anything.
-'''.format(narrator))
+'''.format(narrator, t=Terminal()))
 
 
 def not_a_question():
-    print('''Moderator:
+    print('''{t.bold}Moderator{t.normal}:
 That doesn't look like a yes/no question.
 The answer might not make much sense.
-''')
+'''.format(t=Terminal()))
 
 
 def check_question(question):
@@ -90,13 +91,15 @@ def check_question(question):
 
 
 def respond(question):
-    print('{}:\n{}\n'.format(narrator, compute_response(question)))
+    print('{t.bold}{}{t.normal}:\n{}\n'.format(narrator,
+                                               compute_response(question),
+                                               t=Terminal()))
 
 
 def read_question():
     # TODO: Ideally, only trigger on '?\n\n'
     # TODO: Use login-name or similar instead of 'User'
-    question = input('{}:\n'.format(username))
+    question = input('{t.bold}{}{t.normal}:\n'.format(username, t=Terminal()))
     print()
     return question
 
