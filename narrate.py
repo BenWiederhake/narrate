@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# narrative.py, a tool to create a narrative out of nothing by asking questions
+# narrate.py, a tool to create a narrative out of nothing by asking questions
 # Copyright 2016 Ben Wiederhake
 # MIT licensed, so do whatever you want with it :)
 

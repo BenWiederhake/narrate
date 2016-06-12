@@ -1,4 +1,4 @@
-# narrative.py -- create a narrative out of the blue!
+# narrate.py -- create a narrative out of the blue!
 
 ## What?
 
