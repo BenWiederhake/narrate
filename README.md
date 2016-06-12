@@ -75,8 +75,8 @@ narrative](https://www.reddit.com/r/explainlikeimfive/comments/4nl12b/eli5_when_
 ## Current limitations / TODOs
 
 - There's no line-editing and I don't plan to change that.
-- Try to be more robust against changes.  Maybe make it all lower-case,
-  white-space stripped before hashing?
+- Not robust against small changes.  However, teaching a computer what's
+  a "small" change and what isn't is out of the scope for this.
 - Make the names bold or something.
 
 ## Breaking news
